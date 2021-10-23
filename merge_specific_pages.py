@@ -9,14 +9,16 @@ def merge(path, output_filename):
     pdffile = f = open(path, 'rb')
     print(pdffile)
     
-    # list_of_pages =[(210, 211), (262, 263), (296, 296), (340, 340), (374, 374), (431, 431), (474, 475), (503, 503), (538, 538), (584, 586), (663, 665), (740, 742)]
+    list_of_pages =[(210, 211), (262, 263), (296, 296), (340, 340), (374, 374), (431, 431), (474, 475), (503, 503), (538, 538), (584, 586), (663, 665), (740, 742)]
     # list_of_pages =[(242, 242), (294, 295), (328), (372), (406), (463), (506, 507), (535), (570), (616, 618), (695, 697), (772, 774)] 
-    list_of_pages =[(242, 242), (294, 295), (328, 328), (372, 372), (406, 406), (463, 463), (506, 506), (535, 535), (570, 570), (616, 616), (695, 695), (772, 772)] 
-    # bookmark = os.path.basename(pdffile[:-4])
-    # print(f" Bookmark: '{bookmark}'")
+    # list_of_pages =[(242, 242), (294, 295), (328, 328), (372, 372), (406, 406), (463, 463), (506, 506), (535, 535), (570, 570), (616, 616), (695, 695), (772, 772)] 
+
     for chapter_pages in list_of_pages:
         print(f"Appending: '{chapter_pages}'")
         merger.append(pdffile, pages= chapter_pages)
+        # This might throw an error, need to be fixed
+        # Says index out of range
+    # Some issue with reading file. 
     merger.write(output_filename)
     merger.close()
 
